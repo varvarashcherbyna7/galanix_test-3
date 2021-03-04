@@ -1,8 +1,8 @@
 {
   "files": {
     "main.css": "/galanix_test-3/static/css/main.45437f57.chunk.css",
-    "main.js": "/galanix_test-3/static/js/main.f0ed1db1.chunk.js",
-    "main.js.map": "/galanix_test-3/static/js/main.f0ed1db1.chunk.js.map",
+    "main.js": "/galanix_test-3/static/js/main.fc2246ef.chunk.js",
+    "main.js.map": "/galanix_test-3/static/js/main.fc2246ef.chunk.js.map",
     "runtime-main.js": "/galanix_test-3/static/js/runtime-main.d4a889ba.js",
     "runtime-main.js.map": "/galanix_test-3/static/js/runtime-main.d4a889ba.js.map",
     "static/js/2.b267742b.chunk.js": "/galanix_test-3/static/js/2.b267742b.chunk.js",
@@ -15,6 +15,6 @@
     "static/js/runtime-main.d4a889ba.js",
     "static/js/2.b267742b.chunk.js",
     "static/css/main.45437f57.chunk.css",
-    "static/js/main.f0ed1db1.chunk.js"
+    "static/js/main.fc2246ef.chunk.js"
   ]
 }
