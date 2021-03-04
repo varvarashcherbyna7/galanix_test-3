@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.css": "/galanix_test-3/static/css/main.09395b44.chunk.css",
-    "main.js": "/galanix_test-3/static/js/main.67f283bf.chunk.js",
-    "main.js.map": "/galanix_test-3/static/js/main.67f283bf.chunk.js.map",
+    "main.css": "/galanix_test-3/static/css/main.f568e9cf.chunk.css",
+    "main.js": "/galanix_test-3/static/js/main.e84dbc6b.chunk.js",
+    "main.js.map": "/galanix_test-3/static/js/main.e84dbc6b.chunk.js.map",
     "runtime-main.js": "/galanix_test-3/static/js/runtime-main.d4a889ba.js",
     "runtime-main.js.map": "/galanix_test-3/static/js/runtime-main.d4a889ba.js.map",
     "static/js/2.4212e964.chunk.js": "/galanix_test-3/static/js/2.4212e964.chunk.js",
     "static/js/2.4212e964.chunk.js.map": "/galanix_test-3/static/js/2.4212e964.chunk.js.map",
     "index.html": "/galanix_test-3/index.html",
-    "static/css/main.09395b44.chunk.css.map": "/galanix_test-3/static/css/main.09395b44.chunk.css.map",
+    "static/css/main.f568e9cf.chunk.css.map": "/galanix_test-3/static/css/main.f568e9cf.chunk.css.map",
     "static/js/2.4212e964.chunk.js.LICENSE.txt": "/galanix_test-3/static/js/2.4212e964.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
     "static/js/runtime-main.d4a889ba.js",
     "static/js/2.4212e964.chunk.js",
-    "static/css/main.09395b44.chunk.css",
-    "static/js/main.67f283bf.chunk.js"
+    "static/css/main.f568e9cf.chunk.css",
+    "static/js/main.e84dbc6b.chunk.js"
   ]
 }
