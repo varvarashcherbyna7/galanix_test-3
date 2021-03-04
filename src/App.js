@@ -14,7 +14,9 @@ const App = () => {
     useEffect(() => {
         try {
             async function fetchData() {
-                let res = await fetch(`http://universities.hipolabs.com/search?name/?format=json`);
+                let res = await fetch(`http://universities.hipolabs.com/search?name/?format=json`, {
+                    mode: "cors"
+                });
                 let data = await res.json();
                 setData(data);
             }
