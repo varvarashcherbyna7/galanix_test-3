@@ -24,7 +24,7 @@ const App = () => {
                     //     // 'Content-Type': 'application/x-www-form-urlencoded',
                     // },
                     //redirect: 'follow', // manual, *follow, error
-                    referrerPolicy: 'unsafe-url', // no-referrer, *client
+                    referrerPolicy: 'origin-when-cross-origin', // no-referrer, *client
                     //body: "Content-Type" // body data type must match "Content-Type" header
                 });
                 let data = await res.json();
