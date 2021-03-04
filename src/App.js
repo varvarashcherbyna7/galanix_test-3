@@ -10,15 +10,25 @@ const App = () => {
     const [searchUnivers, setSearchUnivers] = useState([]);
 
     useEffect(() => {
-        async function fetchData() {
-            setLoading(true);
-            let res = await fetch('http://universities.hipolabs.com/search?name');
-            let data = await res.json();
-            let filterNames = data.filter(univer => univer.country.toLowerCase().includes(search.toLowerCase()));
-            setUnivers(filterNames);
-            setLoading(false);
+        try {
+            async function fetchData() {
+                setLoading(true);
+                let res = await fetch('http://universities.hipolabs.com/search?name', {
+                    method: "GET",
+                    body: undefined,
+                    referrerPolicy: "unsafe-url",
+                });
+                let data = await res.json();
+                let filterNames = await data.filter(univer => univer.country.toLowerCase().includes(search.toLowerCase()));
+                setLoading(false);
+                setUnivers(filterNames);
+            }
+            fetchData();
+
+        } catch (err) {
+            console.log(err);
         }
-        fetchData();
+
     }, [search]);
 
     const onHandlerChange = e => {
@@ -58,7 +68,7 @@ const App = () => {
                     :
                     searchUnivers.map((d, index) => {
                         return (
-                            <div key={index} className="container">
+                            <div key={d.name + index} className="container">
                                 <h1 className="nameUniversity"><span>{index + 1}.</span> {d.name}</h1>
                                 <div className="infoUniversity">
                                     <div><h3>Country:</h3>{d.alpha_two_code} - {d.country}</div>
