@@ -1,26 +1,24 @@
 import React, {useState, useEffect} from 'react';
-import './App.sass';
-//import LoaderWebPages from "./components/LoaderWebPages/LoaderWebPages";
 import Loader from "./components/Loader/Loader";
-import Universities from "./components/Universities/Universities";
+import './App.sass';
 
 const App = () => {
-    const [loading, setLoading] = useState(true);
+
+    const [loading, setLoading] = useState(false);
     const [search, setSearch] = useState("");
     const [univers, setUnivers] = useState([]);
     const [searchUnivers, setSearchUnivers] = useState([]);
 
     useEffect(() => {
-
         async function fetchData() {
+            setLoading(true);
             let res = await fetch('http://universities.hipolabs.com/search?name');
             let data = await res.json();
             let filterNames = data.filter(univer => univer.country.toLowerCase().includes(search.toLowerCase()));
             setUnivers(filterNames);
+            setLoading(false);
         }
-
         fetchData();
-
     }, [search]);
 
     const onHandlerChange = e => {
@@ -29,7 +27,6 @@ const App = () => {
     }
 
     const setValue = () => {
-        setLoading(true);
         setSearchUnivers([...univers]);
         setLoading(false);
     }
@@ -55,13 +52,40 @@ const App = () => {
                     <div className='btn' onClick={deleteValue}>Сбросить</div>
                 </form>
             </div>
+            {
+                loading
+                    ? <Loader/>
+                    :
+                    searchUnivers.map((d, index) => {
+                        return (
+                            <div key={index} className="container">
+                                <h1 className="nameUniversity"><span>{index + 1}.</span> {d.name}</h1>
 
-            { loading
-                ? <Loader/>
-                :
-                searchUnivers.map((d, index) => {
-                return <Universities d={d} index={index}/>
-            })}
+                                <div className="infoUniversity">
+                                    <div><h3>Country:</h3>{d.alpha_two_code} - {d.country}</div>
+                                    <div><h3>Domain:</h3>{d.domains.map((d, i) => {
+                                        return (
+                                            <div key={i}>{i + 1}. {d}</div>
+                                        )
+                                    })}</div>
+
+                                    <div><h3>Web pages:</h3>
+                                        {
+                                            d.web_pages.map((page, index) => {
+                                                return (
+                                                    <>
+                                                        <div key={index}>
+                                                            <div>{index + 1}. <a href={page}>{page}</a></div>
+                                                        </div>
+                                                    </>
+                                                )
+                                            })
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        )
+                    })}
         </>
     )
 };
