@@ -4,7 +4,9 @@ import './App.sass';
 
 const App = () => {
 
-    const [loading, setLoading] = useState(false);
+    const [data, setData] = useState([]);
+
+    const [loading, setLoading] = useState(true);
     const [search, setSearch] = useState("");
     const [univers, setUnivers] = useState([]);
     const [searchUnivers, setSearchUnivers] = useState([]);
@@ -12,14 +14,14 @@ const App = () => {
     useEffect(() => {
         try {
             async function fetchData() {
-                setLoading(true);
-                let res = await fetch(`http://universities.hipolabs.com/search?name`);
+                let res = await fetch(`http://universities.hipolabs.com/search?name/?format=json`);
                 let data = await res.json();
-                let filterNames = await data.filter(univer => univer.country.toLowerCase().includes(search.toLowerCase()));
-                setLoading(false);
-                setUnivers(filterNames);
+                setData(data);
             }
             fetchData();
+
+            let filterNames = data.filter(univer => univer.country.toLowerCase().includes(search.toLowerCase()));
+            setUnivers(filterNames);
 
         } catch (err) {
             console.log(err);
@@ -33,6 +35,8 @@ const App = () => {
     }
 
     const setValue = () => {
+        console.log(univers);
+        setLoading(true);
         setSearchUnivers([...univers]);
         setLoading(false);
     }
@@ -70,7 +74,7 @@ const App = () => {
                                     <div><h3>Country:</h3>{d.alpha_two_code} - {d.country}</div>
                                     <div><h3>Domain:</h3>{d.domains.map((d, i) => {
                                         return (
-                                            <div key={i}>{i + 1}. {d}</div>
+                                            <div key={`domain${i}`}>{i + 1}. {d}</div>
                                         )
                                     })}</div>
                                     <div><h3>Web pages:</h3>
@@ -78,7 +82,7 @@ const App = () => {
                                             d.web_pages.map((page, index) => {
                                                 return (
                                                     <>
-                                                        <div key={index}>
+                                                        <div key={`page${index}`}>
                                                             <div>{index + 1}. <a href={page}>{page}</a></div>
                                                         </div>
                                                     </>
