@@ -13,7 +13,7 @@ const App = () => {
         try {
             async function fetchData() {
                 setLoading(true);
-                let res = await fetch('http://universities.hipolabs.com/search?name', {
+                let res = await fetch('http://universities.hipolabs.com/search?', {
                     method: "GET",
                     body: undefined,
                     referrerPolicy: "unsafe-url",
