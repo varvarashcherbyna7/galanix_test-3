@@ -16,8 +16,8 @@ Application code link: https://github.com/varvarashcherbyna7/galanix_test-3
 
 
 ! In order to run the project locally, you need to open the folder with the project, then write the command in the console :
-		 npm install 
-	   npm start
+		 - npm install; 
+	   - npm start.
 
 
 
