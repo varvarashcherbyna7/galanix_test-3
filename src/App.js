@@ -13,11 +13,7 @@ const App = () => {
         try {
             async function fetchData() {
                 setLoading(true);
-                let res = await fetch('http://universities.hipolabs.com/search?name=middle', {
-                    method: "GET",
-                    body: undefined,
-                    referrerPolicy: "unsafe-url",
-                });
+                let res = await fetch(`http://universities.hipolabs.com/search?name`);
                 let data = await res.json();
                 let filterNames = await data.filter(univer => univer.country.toLowerCase().includes(search.toLowerCase()));
                 setLoading(false);
